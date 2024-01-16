@@ -12,9 +12,9 @@ server.start();
 
 //sdk.registerBot(require('./FindAFlight.js'));
 sdk.registerBot(require('./SimpleConversationalBot.js'));
-/* sdk.registerBot(require('./SimpleConversationalBotWithMultipleBotId.js'));
+/* sdk.registerBot(require('./SimpleConversationalBotWithMultipleBotId.js'));*/
 sdk.registerBot(require('./GuessTheNumber.js'));
-sdk.registerBot(require('./BookACab.js'));
+/* sdk.registerBot(require('./BookACab.js'));
 sdk.registerBot(require('./OrderAPizza.js'));
 sdk.registerBot(require('./BotVariables.js'));
 sdk.registerBot(require('./LiveChat.js')); */
