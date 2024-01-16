@@ -1,5 +1,5 @@
-var botId = "st-guess-the-number-bot";
-var botName = "Guess the number";
+var botId = "st-f7326cc0-bbc0-5439-8e87-471c3a36c633";
+var botName = "Flight Search_Webhook";
 var sdk = require("./lib/sdk");
 
 function generateRandomNumber() {
