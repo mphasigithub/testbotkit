@@ -1,0 +1,41 @@
+{
+    "server": {
+        "port": 8003
+    },
+    "app": {
+        "apiPrefix" : "",
+        "url": "https://mphasisbotkit.azurewebsites.net"
+    },
+    "validations": {
+        "leastNodeVersion": 10
+    },
+    "credentials": {
+        "apikey": "DSKsF6PMh5/w+HLoUP+NjXem8EBgkW2FIaApuFiA/UI=",
+        "appId": "cs-4f2f3911-184b-548f-bab6-5b8e5ac0bf1a",
+        "st-67890":{
+            "apikey": "DSKsF6PMh5/w+HLoUP+NjXem8EBgkW2FIaApuFiA/UI=",
+            "appId": "cs-4f2f3911-184b-548f-bab6-5b8e5ac0bf1a"
+        }
+    },
+    "jwt": {
+        "jwtAlgorithm": "HS256",
+        "jwt-expiry": 60,
+        "st-67890":{
+            "jwtAlgorithm": "HS512",
+            "jwt-expiry": 60
+        }
+    },
+    "redis": {
+        "options": {
+            "host": "localhost",
+            "port": 6379
+        },
+        "available": false
+    },
+    "examples" : {
+        "mockServicesHost"  : "http://localhost:8004"
+    },
+    "liveagentlicense": "8947569",
+    "supportsMessageAck": true,
+    "languages":["en","de"]
+}
