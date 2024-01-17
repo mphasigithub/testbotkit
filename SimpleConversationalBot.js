@@ -16,8 +16,12 @@ module.exports = {
 
     on_user_message : function(requestId, data, callback) {
         debug("in on_user_message %s ", requestId);
-        if (data.message === "Hii") {
-            data.message = "Helloooooooooooo Jaipal";
+        if (data.message === "Namaste") {
+            data.message = "Namaste Jaipal";
+            //Sends back 'Hello' to user.
+            return sdk.sendUserMessage(data, callback);
+        } else if(data.message === "is this botkit?"){
+            data.message = "Yes, you are chating with botkit";
             //Sends back 'Hello' to user.
             return sdk.sendUserMessage(data, callback);
         } else if(!data.agent_transfer){
