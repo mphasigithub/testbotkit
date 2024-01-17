@@ -14,10 +14,15 @@ module.exports = {
     botName : botName,
 
     on_user_message : function(requestId, data, callback) {
-        if (data.message === "Hii") {
-            data.message = "Helloooooooooooo Jaipal";
+        if (data.message === "Hi") {
+            data.message = "Hello Jaipal";
             //Sends back 'Hello' to user.
             return sdk.sendUserMessage(data, callback);
+        else if(data.message === "is this botkit?") {
+            data.message = "Yes, you are getting response from botkit";
+            //Sends back 'Hello' to user.
+            return sdk.sendUserMessage(data, callback);
+        }
         } else if(!data.agent_transfer){
             //Forward the message to bot
             return sdk.sendBotMessage(data, callback);
@@ -27,7 +32,7 @@ module.exports = {
         }
     },
     on_bot_message  : function(requestId, data, callback) {
-        if (data.message === 'hello') {
+        if (data.message === 'Hello') {
             data.message = 'The Bot says hello!';
         }
         //Sends back the message to user
