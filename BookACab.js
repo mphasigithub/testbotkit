@@ -4,6 +4,7 @@ var sdk            = require("./lib/sdk");
 var Promise        = sdk.Promise;
 var config         = require("./config");
 var mockServiceUrl = config.examples.mockServicesHost + '/cabbot';
+var mockServiceUrlTest = "http://localhost:3000"+ '/places';
 var { makeHttpCall } = require("./makeHttpCall");
 
 /*
@@ -21,6 +22,22 @@ function findCabs(/*userLoc*/) {
         )
         .then(function(res) {
             resolve(res.data);
+        }).catch(function(err) {
+            return reject(err);
+        })
+    });
+}
+
+function findhydPlaces(callback) {
+    return new Promise(function(resolve, reject) {
+        makeHttpCall(
+            'get',
+            mockServiceUrlTest
+        )
+        .then(function(res) {
+            sdk.sendBotMessage(res.data, callback);
+            resolve(res.data);
+
         }).catch(function(err) {
             return reject(err);
         })
@@ -95,10 +112,15 @@ function bookTheCab(requestId, cabId, userLoc, destination) {
 module.exports = {
     botId   : botId,
     botName : botName,
-    findCabTest : findCabs,
+    
 
     on_user_message : function(requestId, data, callback) {
-        sdk.sendBotMessage(data, callback);
+
+        if (data.message === "FindHydPlace") {
+            findhydPlaces(callback);
+            //Sends back 'Hello' to user.            
+        }
+        //return sdk.sendUserMessage(data, callback);
     },
     on_bot_message  : function(requestId, data, callback) {
         sdk.sendUserMessage(data, callback);
