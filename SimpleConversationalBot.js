@@ -1,6 +1,7 @@
 var botId = "st-f7326cc0-bbc0-5439-8e87-471c3a36c633";
 var botName = "Flight Search_Webhook";
 var sdk = require("./lib/sdk");
+var debug  = require('debug')("Agent");
 
 /*
  * This is the most basic example of BotKit.
@@ -14,12 +15,9 @@ module.exports = {
     botName : botName,
 
     on_user_message : function(requestId, data, callback) {
-        if (data.message === "Hi") {
-            data.message = "Hello Jaipal";
-            //Sends back 'Hello' to user.
-            return sdk.sendUserMessage(data, callback);
-        }else if(data.message === "is this botkit?") {
-            data.message = "Yes, you are getting response from botkit";
+        debug("in on_user_message %s ", requestId);
+        if (data.message === "Hii") {
+            data.message = "Helloooooooooooo Jaipal";
             //Sends back 'Hello' to user.
             return sdk.sendUserMessage(data, callback);
         } else if(!data.agent_transfer){
@@ -31,7 +29,7 @@ module.exports = {
         }
     },
     on_bot_message  : function(requestId, data, callback) {
-        if (data.message === 'Hello') {
+        if (data.message === 'hello') {
             data.message = 'The Bot says hello!';
         }
         //Sends back the message to user
@@ -51,5 +49,3 @@ module.exports = {
     }
 
 };
-
-
