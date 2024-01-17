@@ -13,16 +13,14 @@ var { makeHttpCall } = require("./makeHttpCall");
  * We can either update the message, or chose to call one of 'sendBotMessage' or 'sendUserMessage'
  */
 
-function findhydPlaces(callback) {
+function findhydPlaces() {
     return new Promise(function(resolve, reject) {
         makeHttpCall(
             'get',
             mockServiceUrlTest
         )
-        .then(function(res) {
-            sdk.sendBotMessage(res.data, callback);
+        .then(function(res) {           
             resolve(res.data);
-
         }).catch(function(err) {
             return reject(err);
         })
@@ -37,9 +35,12 @@ module.exports = {
         debug("in on_user_message %s ", requestId);
         if (data.message === "Namaste") {
             data.message = "Namaste Jaipal";
-            findhydPlaces(callback);
+            findhydPlaces()
+            .then(function(dataset) {               
+                return sdk.sendUserMessage(dataset.data, callback);
+            });
             //Sends back 'Hello' to user.
-            return sdk.sendUserMessage(data, callback);
+           
         } else if(data.message === "is this botkit?"){
             data.message = "Yes, you are chating with botkit";
             //Sends back 'Hello' to user.
