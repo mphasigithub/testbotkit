@@ -18,11 +18,10 @@ module.exports = {
             data.message = "Hello Jaipal";
             //Sends back 'Hello' to user.
             return sdk.sendUserMessage(data, callback);
-        else if(data.message === "is this botkit?") {
+        }else if(data.message === "is this botkit?") {
             data.message = "Yes, you are getting response from botkit";
             //Sends back 'Hello' to user.
             return sdk.sendUserMessage(data, callback);
-        }
         } else if(!data.agent_transfer){
             //Forward the message to bot
             return sdk.sendBotMessage(data, callback);
