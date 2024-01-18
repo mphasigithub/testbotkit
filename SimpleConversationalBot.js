@@ -39,7 +39,7 @@ module.exports = {
             //data.message = "Namaste Jaipal";
             findhydPlaces()
             .then(function(dataset) {     
-                data.message=dataset;
+                data.message=dataset.data;
                 return sdk.sendUserMessage(data, callback);
             });
             //Sends back 'Hello' to user.
