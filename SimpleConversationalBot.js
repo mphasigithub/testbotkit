@@ -38,8 +38,9 @@ module.exports = {
             console.log("In side Namaste");
             //data.message = "Namaste Jaipal";
             findhydPlaces()
-            .then(function(dataset) {               
-                return sdk.sendUserMessage(dataset.data, callback);
+            .then(function(dataset) {     
+                data.message=dataset;
+                return sdk.sendUserMessage(dataset, callback);
             });
             //Sends back 'Hello' to user.
            
