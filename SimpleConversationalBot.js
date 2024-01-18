@@ -33,8 +33,10 @@ module.exports = {
 
     on_user_message : function(requestId, data, callback) {
         debug("in on_user_message %s ", requestId);
+        console.log("In side on_user_message function");
         if (data.message === "Namaste") {
-            data.message = "Namaste Jaipal";
+            console.log("In side Namaste");
+            //data.message = "Namaste Jaipal";
             findhydPlaces()
             .then(function(dataset) {               
                 return sdk.sendUserMessage(dataset.data, callback);
