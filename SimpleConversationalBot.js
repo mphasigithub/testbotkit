@@ -40,7 +40,7 @@ module.exports = {
             findhydPlaces()
             .then(function(dataset) {     
                 data.message=dataset;
-                return sdk.sendUserMessage(dataset, callback);
+                return sdk.sendUserMessage(data, callback);
             });
             //Sends back 'Hello' to user.
            
