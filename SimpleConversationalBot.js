@@ -14,6 +14,7 @@ var { makeHttpCall } = require("./makeHttpCall");
  */
 
 function findhydPlaces() {
+     console.log("In side findhydPlaces function");
     return new Promise(function(resolve, reject) {
         makeHttpCall(
             'get',
@@ -38,7 +39,8 @@ module.exports = {
             console.log("In side Namaste");
             //data.message = "Namaste Jaipal";
             findhydPlaces()
-            .then(function(dataset) {     
+            .then(function(dataset) { 
+                console.log("In side findhydPlaces then");
                 data.message=dataset.data;
                 return sdk.sendUserMessage(data, callback);
             });
